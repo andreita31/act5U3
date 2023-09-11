@@ -1,0 +1,50 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>act 5</title>
+</head>
+<body>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js">
+        
+    </script>
+
+    <div id="app">
+        <p>Hola {{ message }}</p>
+        <input v-model="message" placeholder="edit me" />
+
+        <button @click="count++">
+          Count is: {{ count }}
+        </button>
+        <br>
+        <br>
+
+        <input v-model.number="num1" placeholder="number 1" />
+        <input v-model.number="num2" placeholder="number 2" />
+        <button @click="result = num1+num2">
+            sumar
+        </button>
+        <p>{{result}} </p>
+
+    </div>
+    
+    <script>
+        const { createApp, ref } = Vue
+
+        createApp({
+        setup() {
+            const message = ref, result = ref, num1 = ref, num2 = ref;
+            return {
+            count: ref(0),
+            message: ref(''),
+            num1: ref(0),
+            num2: ref(0),
+            result: ref(0)
+            }
+        }
+        }).mount('#app')
+    </script>
+</body>
+</html>
